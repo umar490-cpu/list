@@ -13,3 +13,9 @@
       }
     ]
 }
+{
+  "rewrites": [
+    {"source":"/(.*)", "destination": "/"}
+  ]
+    
+}
