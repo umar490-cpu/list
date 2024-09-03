@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Todo</title>
+</head>
+<style>
+  /* General Styles */
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+  }
+  
+  body {
+      background-color: #f8f9fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+     
+  }
+  
+  /* Container */
+  .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      width: 800px;
+      {% comment %} height: 100px; {% endcomment %}
+  }
+  
+  h2 {
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 24px;
+  }
+  
+  /* Form Container */
+  .form-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+  }
+  
+  .task-input,
+  .date-input {
+      padding: 8px;
+      width: 200px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+  }
+  
+  .save-btn {
+      padding: 8px 15px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+  }
+  
+  /* Checkbox Styles */
+  .status-input {
+      margin-right: 10px;
+  }
+  
+  /* Button Styles */
+  button {
+      padding: 5px 10px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+  }
+  
+  .save-btn {
+      background-color: #28a745;
+      color: white;
+  }
+</style>
+<body>
+  <div class="container">
+    <h2>Edit Todo</h2>
+    <!-- Task Form -->
+    <div class="form-container">
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" id="taskname" name="taskname" placeholder="Enter a task here" class="task-input" value="{{ todo_item.taskname }}" required>
+            <input type="date" id="date" name="date" class="date-input" value="{{ todo_item.date|date:'Y-m-d' }}" required>
+            <input type="checkbox" id="status" name="status" class="status-input" {% if todo_item.status == 'started' %}checked{% endif %}> Started
+            <button type="submit" class="save-btn">Save</button>
+        </form>
+    </div>
+</body>
+</html>

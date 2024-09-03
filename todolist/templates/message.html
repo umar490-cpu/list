@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages with Icon</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        /* Ensure custom font size is applied */
+        .alert.alert-danger, .alert.alert-success, .alert.alert-primary, .alert.alert-warning, .alert.alert-error {
+            font-size: 0.8rem; /* Adjust as needed */
+        }
+        .icon {
+            font-size: 1.2rem; /* Adjust icon size if needed */
+        }
+    </style>
+</head>
+<body>
+
+{% if messages %}
+    {% for message in messages %}
+        {% if message.tags == 'error' %}
+            <div class="alert alert-danger text-center d-flex align-items-center justify-content-center" role="alert">
+                <div class="icon mr-2">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                </div>
+                <div>
+                    {{ message }}
+                </div>
+            </div>
+        {% elif message.tags == 'success' %}
+            <div class="alert alert-success text-center d-flex align-items-center justify-content-center" role="alert">
+                <div class="icon mr-2">
+                    <i class="fa-regular fa-circle-check"></i>
+                </div>
+                <div>
+                    {{ message }}
+                </div>
+                
+            </div>
+       
+        
+        {% elif message.tags == "info" %}
+            <div class="alert alert-primary text-center d-flex align-items-center justify-content-center" role="alert">
+                <div class="icon mr-2">
+                    <i class="fa-solid fa-info"></i>
+                </div>
+                <div>
+                    {{ message }}
+                </div>
+            </div>
+        {% elif message.tags == "debug" %}
+            <div class="alert alert-secondary text-center d-flex align-items-center justify-content-center" role="alert">
+                <div class="icon mr-2">
+                    <i class="fa fa-trash"></i>
+                </div>
+                <div>
+                    {{ message }}
+                </div>
+            </div>
+        {% elif message.tags == "warning" %}
+            <div class="alert alert-warning text-center d-flex align-items-center justify-content-center" role="alert">
+                <div class="icon mr-2">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <div>
+                    {{ message }}
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+<script>
+    setTimeout(function() {
+        document.querySelectorAll('.alert').forEach(function(alert) {
+            alert.remove();
+        });
+    }, 2000);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .background {
+            background: url('https://img.freepik.com/free-vector/abstract-watercolor-pastel-background_87374-139.jpg?w=360') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .signup-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+        .signup-container h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        form .input-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .input-group input {
+            width: 48%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: #f9f9f9;
+        }
+        form button {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        form button:hover {
+            background: #0056b3;
+        }
+        form p {
+            margin-top: 10px;
+        }
+        form p a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        form p a:hover {
+            text-decoration: underline;
+        }
+        .background {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="signup-container">
+            <h2>Sign up Now</h2>
+            {% include "message.html" %}
+            <form method="post">
+                {% csrf_token %}
+                <div class="input-group">
+                    <input type="text" name="first_name" id="firtst_name" placeholder="First name" required>
+                    <input type="text" name="last_name" id="last_name"placeholder="Last name" required>
+                </div>
+                <div class="input-group">
+                    <input type="text" name="username" id="username" placeholder="User name" required>
+                    <input type="email" name="email" id="email" placeholder="Email address" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" name="password" id="password" placeholder="Password" required> <br> <br>
+                    <input type="password" name="confirmpassword" id="confirmpassword" placeholder="Confirm password" required>
+                </div>
+                <button type="submit">SIGN UP</button>
+                <p>Already have an account? <a href={% url "signin" %}>Sign in</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

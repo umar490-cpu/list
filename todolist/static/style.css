@@ -1,0 +1,175 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+body {
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container */
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 800px;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 24px;
+}
+
+/* Form Container */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+
+
+.save-btn {
+    padding: 10px 40px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+   
+}
+
+/* Table Controls */
+.table-container {
+    margin-top: 20px;
+}
+
+.save-btn:hover {
+    background-color: #28a745;
+}
+
+.table-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.table-controls select {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+/* Button Styles */
+button {
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+.edit-btn {
+    background-color: #ff9f43;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #f34646;
+    color: white;
+}
+
+.finished-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+/* Pagination Styles */
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pagination-controls {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.pagination-btn {
+    padding: 5px 15px;
+    background-color: #007bff78;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Signout Button */
+.signout-btn-container {
+    position: absolute;
+    top: 20px;
+    right: 100px;
+}
+
+/* Custom Classes */
+.p {
+    text-transform: capitalize; 
+}
+.dropdown-menu {
+    max-height: 200px; /* adjust the height as needed */
+    overflow-y: auto;
+}
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.task-input-container,
+.date-input-container {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+
+.task-input,
+.date-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
